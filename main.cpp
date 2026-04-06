@@ -15,7 +15,7 @@ int main() {
     set<string> set;
     string temp;
 
-    // READING FILE
+    //READING FILE
     auto start = high_resolution_clock::now();
     while (fin >> temp) {
         vec.push_back(temp);
@@ -46,9 +46,52 @@ int main() {
     auto vSort = duration_cast<milliseconds>(end - start);
 
     start = high_resolution_clock::now();
+    list.sort();
     end = high_resolution_clock::now();
+    auto lSort = duration_cast<milliseconds>(end - start);
 
+    auto sSort = -1;
+
+
+    //INSERTING
+    string t = "TESTCODE";
+
+    start = high_resolution_clock::now();
+    vec.insert(vec.begin() + (vec.size() / 2), t);
+    end = high_resolution_clock::now();
+    auto vIns = duration_cast<milliseconds>(end - start);
+    
+    start = high_resolution_clock::now();
+    auto it = list.begin();
+    advance(it, (list.size() / 2));
+    list.insert(it, t);
+    end = high_resolution_clock::now();
+    auto lIns = duration_cast<milliseconds>(end - start);
+
+    start = high_resolution_clock::now();
+    set.insert(t);
+    end = high_resolution_clock::now();
+    auto sIns = duration_cast<milliseconds>(end - start);
+
+    //DELETING
+    start = high_resolution_clock::now();
+    vec.erase(vec.begin() + (vec.size() / 2));
+    end = high_resolution_clock::now();
+    auto vDel = duration_cast<milliseconds>(end - start);
+
+
+    start = high_resolution_clock::now();
+    
+    end = high_resolution_clock::now();
     duration_cast<milliseconds>(end - start);
+
+    start = high_resolution_clock::now();
+    
+    end = high_resolution_clock::now();
+    duration_cast<milliseconds>(end - start);
+
+
+
 
     return 0;
 }
